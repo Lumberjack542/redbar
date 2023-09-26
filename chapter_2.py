@@ -8,6 +8,7 @@ import argparse
 
 def split_video_into_scenes(video_path, output_folder, threshold=64.0):
 
+
     video =  VideoManager([video_path])
     scene_manager = SceneManager()
     scene_manager.add_detector(
