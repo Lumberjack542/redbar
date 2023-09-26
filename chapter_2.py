@@ -6,7 +6,7 @@ import scenedetect.video_splitter as video_splitter
 import argparse
 
 
-def split_video_into_scenes(video_path, output_folder, threshold=27.0):
+def split_video_into_scenes(video_path, output_folder, threshold=64.0):
 
     video =  VideoManager([video_path])
     scene_manager = SceneManager()
@@ -15,7 +15,7 @@ def split_video_into_scenes(video_path, output_folder, threshold=27.0):
     scene_manager.detect_scenes(video, show_progress=True)
     scene_list = scene_manager.get_scene_list()
     
-    os.mkdir(output_folder, exist_ok=True)
+    os.makedirs(output_folder, exist_ok=True)
     video_splitter.split_video_ffmpeg([video_path], scene_list, output_folder + "/" + '$VIDEO_NAME-$SCENE_NUMBER' +".mp4", os.path.basename(output_folder) ,suppress_output=True)
     
 

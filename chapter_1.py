@@ -10,7 +10,7 @@ def extract_frames(video_path, num_frames1, num_frames2, output_folder):
     width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
     print(width, 'x', height)  
     
-    
+     
     if not cap.isOpened():
         print("Error: Could not open video file.")
         exit()
